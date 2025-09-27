@@ -1,0 +1,77 @@
+:root {
+    --brand: #fe424d;
+    --ink: #222;
+    --muted: #6b7280;
+    --bg: #f7f7f8;
+    --card: #fff;
+    --radius: 14px;
+}
+
+body {
+    color: var(--ink);
+}
+
+/* Navbar */
+.navbar {
+    backdrop-filter: saturate(1.2) blur(4px);
+}
+
+.fa-compass {
+    color: var(--brand);
+}
+
+.nav-link b {
+    font-weight: 600;
+}
+
+/* Search */
+.nav-search {
+    width: clamp(12rem, 28vw, 30rem);
+}
+
+.search-inp {
+    padding: .55rem 1rem;
+    border-radius: 999px;
+}
+
+.search-btn {
+    padding: .55rem 1.25rem;
+    border-radius: 999px;
+    background: var(--brand);
+    color: #fff;
+}
+
+.search-btn:hover {
+    opacity: .95;
+    color: #fff;
+}
+
+/* Cards */
+.card {
+    border: 1px solid #ececec;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .02), 0 6px 12px -6px rgba(0, 0, 0, .06);
+}
+
+.card-text {
+    color: var(--muted);
+}
+
+/* Footer */
+.f-info {
+    background: #ebebeb;
+}
+
+/* Utilities */
+.btn-brand {
+    background: var(--brand);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.btn-brand:hover {
+    background: var(--brand);
+    opacity: .95;
+    color: #fff;
+}

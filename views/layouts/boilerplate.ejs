@@ -25,10 +25,12 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/rating.css" />
+    <link rel="stylesheet" href="/css/theme.css" />
   </head>
 
   <body>
-    <%- include("../includes/navbar.ejs") %>
+    <% if (typeof currentUser === 'undefined') { var currentUser =
+    locals.currentUser || null; } %> <%- include("../includes/navbar.ejs") %>
     <div class="container">
       <%- include("../includes/flash.ejs") %> <%- body %>
     </div>

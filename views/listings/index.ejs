@@ -87,27 +87,31 @@
   </div>
 </div>
 
-<div class="card-container row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1">
-  <% for (list of allLists) {%>
-
-  <div class="card" style="width: 21rem">
-    <a href="/listings/<%= list._id %>" class="card-link">
-      <img src="<%= list.image.url %>" class="card-img-top" alt="..." />
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
+  <% for (list of allLists) { %>
+  <div class="col">
+    <a href="/listings/<%= list._id %>" class="card card-link h-100 shadow-sm">
+      <img
+        src="<%= list.image.url %>"
+        class="card-img-top object-fit-cover"
+        style="aspect-ratio: 16/10"
+        alt="<%= list.title %>"
+      />
       <div class="card-img-overlay"></div>
       <div class="card-body">
-        <b><h5 class="card-title"><%= list.title %></h5></b>
-        <!-- <p class="card-text"><%= list.description %></p> -->
-        <p>
+        <h5 class="card-title mb-1"><b><%= list.title %></b></h5>
+        <p class="mb-2 text-muted small">
+          <%= list.location %>, <%= list.country %>
+        </p>
+        <p class="mb-0">
           <b class="card-price"
             >&#8377; <%= list.price.toLocaleString("en-IN")%> / Night</b
           >
-          <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+          <i class="tax-info d-none d-sm-inline">&nbsp; &nbsp; +18% GST</i>
         </p>
-        <a href="/listings/<%= list._id %>" class="btn btn-primary">View</a>
       </div>
     </a>
   </div>
-
   <% } %>
 </div>
 
@@ -116,10 +120,12 @@
   taxSwitch.addEventListener("click", () => {
     let taxInfo = document.getElementsByClassName("tax-info");
     for (info of taxInfo) {
-      if (info.style.display != "inline") {
-        info.style.display = "inline";
+      if (info.classList.contains("d-none")) {
+        info.classList.remove("d-none");
+        info.classList.add("d-inline");
       } else {
-        info.style.display = "none";
+        info.classList.add("d-none");
+        info.classList.remove("d-inline");
       }
     }
   });
