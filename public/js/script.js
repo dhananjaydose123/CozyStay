@@ -21,3 +21,18 @@
     );
   });
 })();
+
+// Live character counter for review comment
+document.addEventListener("DOMContentLoaded", () => {
+  const comment = document.getElementById("comment");
+  const counter = document.getElementById("commentCount");
+  if (comment && counter) {
+    const max = 500;
+    comment.setAttribute("maxlength", String(max));
+    const update = () => {
+      counter.textContent = `${comment.value.length} / ${max}`;
+    };
+    comment.addEventListener("input", update);
+    update();
+  }
+});

@@ -38,7 +38,7 @@
         <!-- Reviews section -->
         <% if (typeof currentUser !== 'undefined' && currentUser) { %>
 
-        <h3>Leave a Review</h3>
+        <h3 id="reviews">Leave a Review</h3>
         <form
           method="post"
           action="/listings/<%= list._id %>/reviews"
@@ -104,6 +104,10 @@
               cols="7"
               required
             ></textarea>
+            <div class="d-flex justify-content-between mt-1 small text-muted">
+              <span>Min 1 character</span>
+              <span id="commentCount">0 / 500</span>
+            </div>
           </div>
           <button class="btn btn-brand mb-3">Submit</button>
         </form>
